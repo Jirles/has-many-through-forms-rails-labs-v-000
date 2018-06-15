@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
     categories_attributes.values.each do |cat_attr|
       category = Category.find_or_create_by(cat_attr)
       self.post_categories.build(category: category)
+    end 
   end
 
   def fields_blank?
