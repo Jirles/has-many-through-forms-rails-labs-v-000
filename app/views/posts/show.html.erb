@@ -25,8 +25,8 @@
 
 <h4>Add Comment </h4>
 
-<%= form_for @post.comments.build do |f| %>
-  <% f.hidden_field :post_id, value: @post.id %>
+<%= form_for Comment.new do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
   <%= f.label :content %>
   <%= f.text_area :content %>
   <br>
