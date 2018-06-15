@@ -6,8 +6,12 @@ class Post < ActiveRecord::Base
 
   def categories_attributes=(categories_attributes)
     categories_attributes.values.each do |cat_attr|
-      category = Category.find_or_create_by(cat_attr)
-      self.post_categories.build(category: category)
+      if cat_attr[:name].present?
+        category = Category.find_or_create_by(cat_attr)
+        if self.categories.include?(category)
+          self.post_categories.build(category: category)
+        end 
+      end
     end
   end
 
