@@ -9,14 +9,14 @@ class Comment < ActiveRecord::Base
     params[:user_attributes][:username].blank?
   end
 
-  def user_attributes=(user_attributes)
-    user_attributes.each do |user_attr|
-      binding.pry
-      if user_attr[:username].present?
-        user = User.find_or_create_by(username: user_attr)
-        self.user = user if self.user.nil?
-      end
-    end
-  end
+#  def user_attributes=(user_attributes)
+#    user_attributes.each do |user_attr|
+#      binding.pry
+#      if user_attr[:username].present?
+#        user = User.find_or_create_by(username: user_attr)
+#        self.user = user if self.user.nil?
+#      end
+#    end
+#  end
 
 end
