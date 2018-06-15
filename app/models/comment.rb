@@ -3,6 +3,7 @@ require 'pry'
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
+  accepts_nested_attributes_for :user, reject_if: :field_blank 
 
   def user_attributes=(user_attributes)
     user_attributes.each do |user_attr|
