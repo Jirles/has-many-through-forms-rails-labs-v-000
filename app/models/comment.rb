@@ -7,7 +7,7 @@ class Comment < ActiveRecord::Base
       if user_attr[:username].present?
         user = User.find_or_create_by(username: user_attr)
         self.user = user if self.user.nil?
-      end 
+      end
     end
   end
 
